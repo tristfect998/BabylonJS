@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Plan de chargement</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://preview.babylonjs.com/babylon.js"></script>
+  <script src="https://preview.babylonjs.com/gui/babylon.gui.js"></script>
+  <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+  <script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="Scene.js"></script>
+  <script src="Utils/Boxes.js"></script>
+  <script src="Utils/Trailer.js"></script>
+  <script src="Actions.js"></script>
+  <script src="Utils/Color.js"></script>
+  <script src="Utils/BoxText.js"></script>
+</head>
+
+<body>
+  <div class="Action row col-12">
+    <div class="col-3">
+      <h2>JSON Load : </h2>
+      <input class="col-7" class="form-control" type="text" id="solutions">
+      <button class=" col-3" onclick="GeneratePlan()">Générer</button>
+    </div>
+    <div class="col-2">
+      <h2>Colors : </h2>
+      <select class="col-6" onchange="ColorModeChanged(this.value)" id="colorMode">
+        <option value="Produit">Product</option>
+        <option value="Drop">Drop</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <h2>Screenshots : </h2>
+      <button onclick="NewCapture()">New screenshot</button>
+    </div>
+  </div>
+  <div class="tab" id="tabHeader">
+  </div>
+  <div class="tabcontent">
+    <div class="stats">
+      <h2>Stats :</h2>
+      <div class="row">
+        <p class="mb-0">Total Weight : </p>
+        <p class="mb-0" id="TotWeight"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Weight fulfilment (%) : </p>
+        <p class="mb-0" id="FulWeight"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Total volume : </p>
+        <p class="mb-0" id="TotVolume"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Volume fulfilment (%) : </p>
+        <p class="mb-0" id="FulVolume"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Bundles on deck : </p>
+        <p class="mb-0" id="BundlesOnDeck"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Bundles missing : </p>
+        <p class="mb-0" id="MissingCount"></p>
+      </div>
+      <div class="row">
+        <p class="mb-0">Bundles placed : </p>
+        <p class="mb-0" id="BundleCount"></p>
+      </div>
+    </div>
+      <canvas class="renderCanvas" id="renderCanvas" touch-action="none"></canvas>
+    </div>
+</body>
+
+</html>
